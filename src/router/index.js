@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import LandingPage from '/Users/ttharita/Desktop/MUSE/VUE/vue-ywc/src/components/LandingPage.vue'
-import InfoCategory from '/Users/ttharita/Desktop/MUSE/VUE/vue-ywc/src/components/InfoCategory.vue'
-import MealOfIngredient from '/Users/ttharita/Desktop/MUSE/VUE/vue-ywc/src/components/MealOfIngredient.vue'
+import LandingPage from '@/components/LandingPage'
+import InfoCategory from '@/components/InfoCategory'
+import MealOfIngredient from '@/components/MealOfIngredient'
 Vue.use(Router)
 
 export default new Router({
