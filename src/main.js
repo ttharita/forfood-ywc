@@ -6,7 +6,7 @@ import router from './router'
 
 import jQuery from 'jquery'
 
-import '/Users/ttharita/Desktop/MUSE/VUE/vue-ywc/node_modules/bootstrap/dist/css/bootstrap.css'
+//import '/Users/ttharita/Desktop/MUSE/VUE/vue-ywc/node_modules/bootstrap/dist/css/bootstrap.css'
 
 
 global.jQuery = jQuery
