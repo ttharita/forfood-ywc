@@ -3,9 +3,11 @@ import Router from 'vue-router'
 import LandingPage from '@/components/LandingPage'
 import InfoCategory from '@/components/InfoCategory'
 import MealOfIngredient from '@/components/MealOfIngredient'
+
 Vue.use(Router)
 
 export default new Router({
+    mode: 'history',
     routes: [{
         path: '/',
         name: 'landing page',
