@@ -25,9 +25,8 @@
             v-for="meal in info" :key="meal"
             class="meal">
 
-
             <div class="accordion" id="accordionExample">
-            <div class="card">
+            <div class="card" @click="getMealById( meal['idMeal'] )">
                 <div class="card-header" id="headingOne">
                 <h5 class="mb-0">
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -39,15 +38,14 @@
                 <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                    <img class="card-img-bottom" :src="`${ meal.strMealThumb }`" alt="Card image cap">
-                   <!-- <p> {{ getMealInfo( ` ${meal.idMeal}`     ) }}</p> -->
                
                 </div>
                 </div>
-            </div>
-            </div>
         </div>        
     </div>
-    
+    </div>
+    </div>
+   
 </template>
 
 <script>
@@ -55,10 +53,12 @@ import axios from 'axios'
 
 export default {
     name: "InfoCategory",
+    props: ["selected_id"],
     data(){
         return{
-            category: this.$route.params.selected_category, 
-            info: null, 
+            category: this.setCategory(this.$route.params.selected_category), 
+            info: [], 
+            infoById: {},
             meal_IDs: [], 
 
         }
@@ -69,27 +69,40 @@ export default {
     },
 
     methods: { 
+        setCategory(category){
+            if (category != undefined) {
+            localStorage.setItem('category', category)
+            }
+            return localStorage.getItem('category')
+
+        },
         getCategoryList(){ 
             axios.get('https://www.themealdb.com/api/json/v1/1/filter.php',{
                 params:{
                     c: this.category
                 }
+                
 
             })
             .then((response) => (
-                this.info = response.data.meals,
-                console.log(this.info),
-                console.log('in then: ' + this.info)
-               
-                
-               
-                
+                this.info = response.data.meals
                 
             ))
-
-            
-
         },
+        getMealById(id){
+            // console.log(id)
+            // axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+            // .then(({data}) => (
+            //    console.log(data)     
+            // ))
+            this.$router.push({
+                name: 'info of meal', 
+                params: { selected_id : id }    
+            });
+      
+            
+            
+        }
      
 
 

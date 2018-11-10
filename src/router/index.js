@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import LandingPage from '@/components/LandingPage'
 import InfoCategory from '@/components/InfoCategory'
 import MealOfIngredient from '@/components/MealOfIngredient'
+import InfoMeal from '@/components/InfoMeal'
 
 Vue.use(Router)
 
@@ -23,6 +24,12 @@ export default new Router({
         path: '/meals_of_ingredient',
         name: 'meals of ingredient',
         component: MealOfIngredient,
+        props: true
+    },
+    {
+        path: '/meal_info',
+        name: 'info of meal',
+        component: InfoMeal, 
         props: true
     }
     

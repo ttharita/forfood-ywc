@@ -434,6 +434,8 @@
     </div>
     </div>
 
+ 
+
     
 
   </div>
@@ -446,12 +448,13 @@ import { POINT_CONVERSION_HYBRID } from 'constants';
 
 export default {
   name: 'LandingPage',
-  props: ["selected_category"],
+  props: ["selected_category", "itemClicked"],
   data () {
     return {
       info: null,
       search: '', 
       items: [], 
+      count: localStorage.getItem('count') == undefined ? 0 :localStorage.getItem('count')
      
     }
   },
@@ -501,6 +504,7 @@ export default {
  
   },
   methods: {
+   
     get_category(category){
       console.log(category)
       this.$router.push({
