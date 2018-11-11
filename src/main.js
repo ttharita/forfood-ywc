@@ -5,8 +5,6 @@ import App from './App'
 import router from './router'
 
 import jQuery from 'jquery'
-
-//import '/Users/ttharita/Desktop/MUSE/VUE/vue-ywc/node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 
 
@@ -14,6 +12,9 @@ global.jQuery = jQuery
 
 Vue.config.productionTip = false
 let Bootstrap = require('bootstrap')
+let SocialSharing = require('vue-social-sharing')
+Vue.use(SocialSharing)
+
 
 
 /* eslint-disable no-new */

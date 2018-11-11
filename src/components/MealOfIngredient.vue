@@ -83,7 +83,7 @@ export default {
 .card-img-bottom{
     width: 100%;
     height: 20vw;
-    object-fit: contain;   
+    object-fit: cover;   
     margin-bottom: 4vh; 
     margin-top: 4vh;
 }

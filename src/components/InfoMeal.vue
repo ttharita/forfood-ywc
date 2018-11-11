@@ -12,11 +12,26 @@
                 allowfullscreen></iframe>
                
             </div>
+            <social-sharing inline-template :url="`${ item.strYoutube.replace('watch?v=','embed/') }`"
+                      :quote = "`Check out this awesome meal, ${ item.strMeal }`"
+                :network-tag="tag">
+                <network network="facebook">
+                    <button  type="button" class="btn btn-light">
+                        <i class="fab fa-facebook-f"></i>                        
+                         Share this meal on Facebook
+                     </button>
+
+                    
+                </network>
+            </social-sharing>
             </div>
+            
+            
 
 
 
-        </div>
+
+        </div> 
     </div>
     
 </template>
@@ -28,8 +43,8 @@ export default {
     name: "InfoMeal",
     data(){
         return{
-            id: this.$route.params.selected_id, 
-            information: []
+            id: this.setID(this.$route.params.selected_id), 
+            information: [],
 
         }
     },
@@ -38,6 +53,13 @@ export default {
 
     },
     methods:{
+        setID(id){
+            if (id != undefined) {
+            localStorage.setItem('id', id)
+            }
+            return localStorage.getItem('id')
+
+        },
         getMealById(){
             axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${this.id}`)
             .then(({data}) => (
@@ -67,6 +89,9 @@ export default {
     margin-bottom: 4vh; 
     margin-top: 4vh;
 }
+
+
+
 
 
 </style>

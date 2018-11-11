@@ -480,6 +480,7 @@ export default {
       $(this).hover(function () {
         $display.text($el.data('name')).css('marginLeft', -($display.width()/2))
         console.log( $display.text($el.data('name')).text()) // get hovered region name (continent's name)
+        
         $el.children().css('fill', colour())
       }, function () {
         $display.empty()
