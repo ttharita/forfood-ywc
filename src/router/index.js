@@ -31,7 +31,8 @@ export default new Router({
         name: 'info of meal',
         component: InfoMeal, 
         props: true
-    }
+    },
+   
     
 
 ]
